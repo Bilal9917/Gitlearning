@@ -8,34 +8,9 @@ use App\Models\Employe;
 
 class UserController extends Controller
 {
-    public function index()
+       public function relation()
     {
-        $data = Employe::get();
-        return view('list',compact('data'));
+        $data = Employe::find(4)->companyData;
+        return $data;
     }
-    public function delete($id)
-    {
-        $data = Employe::find($id)->delete();
-        return redirect('show');
-    }
-    public function edit($id)
-    {
-        $data = Employe::find($id);
-        return view('form',compact('data'));
-    }
-    public function update(Request $req)
-    {
-        $id =  $req->id;
-        $data = Employe::find($id);
-        $data->name = $req->name;
-        $data->email = $req->email;
-        $data->city = $req->city;
-        $data->save();
-        return redirect('show');
-    }
-    // public function relation()
-    // {
-    //     $data = Employe::find(1)->companyData;
-    //     return $data;
-    // }
 }

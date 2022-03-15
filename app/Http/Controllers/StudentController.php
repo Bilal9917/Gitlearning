@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Data;
 // use Illuminate\Support\Facades\DB;
-
 class StudentController extends Controller
 {
     public function index()
     {
-
-        $data = Data::where('name','bilal')->get();
-        return view('list2',compact('data'));
+        $data = Data::get();
+        return view('list',compact('data'));
     }
     public function delete($id)
     {
@@ -22,32 +20,56 @@ class StudentController extends Controller
     public function edit($id)
     {
         $data = Data::find($id);
-        return view('form2',compact('data'));
+        return view('form',compact('data'));
     }
     public function update(Request $req)
     {
         $id =  $req->id;
-        $data = Data::find($id);
+        $data = Employe::find($id);
         $data->name = $req->name;
         $data->email = $req->email;
-        $data->password = $req->password;
+        $data->city = $req->city;
         $data->save();
         return redirect('show');
     }
-    public function save()
+
+    public function Register(Request $req)
     {
-        $data = Data::insert([
-            "name" => "bilal",
-            "email"  => "bilal@gmail.com",
-            "password"  => "bilal@2323"
-        ]);
-        if(!empty($data))
+        $id = $req->id;
+        $data =new Data;
+        $data->name = $req->name;
+        $data->email = $req->email;
+        $data->password = $req->password;
+        // dd($data);
+        $data->save();
+        if($data)
         {
-            echo "data inserted successfully";
+            echo "Register successfully";
         }
-        else
+        else{
+            echo "Register fail";
+        }
+    }
+    public function accessData()
+    {
+        $data = Data::find(1);
+        return $data;
+    }
+    public function muteData()
+    {
+        $data =new Data;
+        $data->name ='bilal';
+        $data->email ='bila@gmail.com';
+        $data->city ='Meerut';
+        $data->save();
+
+        if($data)
         {
+            echo "data inserted";
+        }
+        else{
             echo "data not inserted";
         }
+
     }
 }

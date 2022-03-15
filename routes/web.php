@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\StudentController;
-use App\Http\Controllers\UserController;
+// use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 
 /*
@@ -19,13 +18,12 @@ use App\Http\Controllers\StudentController;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get("/show",[StudentController::class,'index']);
-// // Route::get("/delete/{id?}",[StudentController::class,'delete'])->name('data.delete');
-// Route::get("/edit/{id?}",[StudentController::class,'edit'])->name('data.edit');
-// Route::post("/update/{id?}",[StudentController::class,'update']);
-// Route::get("/insert",[StudentController::class,'save']);
-Route::get("/relation",[UserController::class,'relation']);
-Route::get("/show",[UserController::class,'index']);
-Route::get("/delete/{id?}",[UserController::class,'delete'])->name('data.delete');
-Route::get("/edit/{id?}",[UserController::class,'edit'])->name('data.edit');
-Route::post("/update/{id?}",[UserController::class,'update']);
+Route::get("/show",[StudentController::class,'index']);
+Route::get("/delete/{id?}",[StudentController::class,'delete'])->name('data.delete');
+Route::get("/edit/{id?}",[StudentController::class,'edit'])->name('data.edit');
+Route::post("/update/{id?}",[StudentController::class,'update']);
+Route::get("/relation",[StudentController::class,'relation']);
+// Route::view("/insert","form2");
+// Route::post("/register",[StudentController::class,'register']);
+Route::get("/data",[StudentController::class,'accessData']);
+Route::get("/dataa",[StudentController::class,'muteData']);

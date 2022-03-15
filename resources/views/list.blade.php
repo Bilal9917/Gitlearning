@@ -1,5 +1,5 @@
 <table>
-    <thead>
+    <thead style = background:gray>
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -8,10 +8,10 @@
             <th>Action</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody style = background:lightgray>
     @foreach($data as $datas)
        <tr>
-           <td>{{$datas->id}}</td>
+           <td style = background:darkgray>{{$datas->id}}</td>
            <td>{{$datas->name}}</td>
            <td>{{$datas->email}}</td>
            <td>{{$datas->city}}</td>
