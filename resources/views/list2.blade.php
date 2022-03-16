@@ -1,24 +1,27 @@
 <table>
-    <thead style=background:gray>
+    <thead style = background:gray>
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Email</th></th>
+            <th>Email</th>
             <th>Password</th>
-            <th>Action</th>
+            <th>Action1</th>
+            <th>Action2</th>
         </tr>
     </thead>
-    <tbody style=background:lightgray>
-    @foreach($data as $datas)
+    <tbody style = background:lightgray>
+        @foreach($data as $get)
         <tr>
-        <td>{{$datas->id}}</td>
-        <td>{{$datas->name}}</td>
-        <td>{{$datas->email}}</td>
-        <td>{{$datas->password}}</td>
-        <td>
-            <a href="{{route('data.edit',$datas->id)}}">Edit</a>
-            <a href="{{route('data.delete',$datas->id)}}">Delete</a>
-        </td>
+            <td style = background:darkgray>{{$get->id}}</td>
+            <td>{{$get->name}}</td>
+            <td>{{$get->email}}</td>
+            <td>{{$get->password}}</td>
+            <td>
+                <a href="{{route('data.edit',$get->id)}}">Update</a>
+            </td>
+            <td>
+                <a href="{{route('data.delete',$get->id)}}">Delete</a>
+            </td>
         </tr>
         @endforeach
     </tbody>

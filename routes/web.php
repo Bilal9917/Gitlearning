@@ -18,12 +18,10 @@ use App\Http\Controllers\StudentController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get("/show",[StudentController::class,'index']);
-Route::get("/delete/{id?}",[StudentController::class,'delete'])->name('data.delete');
-Route::get("/edit/{id?}",[StudentController::class,'edit'])->name('data.edit');
-Route::post("/update/{id?}",[StudentController::class,'update']);
-Route::get("/relation",[StudentController::class,'relation']);
-// Route::view("/insert","form2");
-// Route::post("/register",[StudentController::class,'register']);
+
 Route::get("/data",[StudentController::class,'accessData']);
 Route::get("/dataa",[StudentController::class,'muteData']);
+Route::get("/show",[StudentController::class,'index']);
+Route::get("/edit/{id?}",[StudentController::class,'edit'])->name('data.edit');
+Route::post("/update/{id?}",[StudentController::class,'update'])->name('data.update');
+Route::get("/detele/{id?}",[StudentController::class,'delete'])->name('data.delete');

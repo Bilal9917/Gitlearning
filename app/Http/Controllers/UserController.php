@@ -8,9 +8,8 @@ use App\Models\Employe;
 
 class UserController extends Controller
 {
-       public function relation()
+    public function index()
     {
-        $data = Employe::find(4)->companyData;
-        return $data;
+
     }
 }

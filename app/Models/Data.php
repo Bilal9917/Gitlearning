@@ -8,22 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Data extends Model
 {
     use HasFactory;
-    protected $table = 'employes';
+    // protected $table = 'employes';
+    protected $table = 'datas';
     public $timestamps = false;
-// public function getNameAttribute($value)
+    public function getNameAttribute($value)
+    {
+        return UCFirst("Mr. ".$value);
+    }
+    // public function getAddresAttribute($value)
+    // {
+    // }
+// public function setNameAttribute($value)
 // {
-//     return ('mr.'.$value." saifi");
+//     return $this->attributes['name'] = 'Mr .'.$value;
 // }
-// public function getCityAttribute($value)
+// public function setCityAttribute($value)
 // {
-//     return UCFirst($value." India");
+//     return $this->attributes['city'] =$value.', India';
 // }
-public function setNameAttribute($value)
-{
-    return $this->attributes['name'] = 'Mr .'.$value;
-}
-public function setCityAttribute($value)
-{
-    return $this->attributes['city'] =$value.', India';
-}
 }
